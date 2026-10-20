@@ -1,0 +1,13 @@
+YouTube Downloader
+Copyright 2026 Boyang Shen
+
+Project: https://github.com/michaelshen233/Youtube-Bilibili-downloader-mp3-mp4
+
+The application's original code is licensed under the Apache License, Version 2.0.
+
+This application uses yt-dlp, FFmpeg/FFprobe, and Node.js. Windows FFmpeg builds
+are supplied by yt-dlp/FFmpeg-Builds, derived from BtbN/FFmpeg-Builds.
+Playwright is used for browser testing.
+
+These third-party projects retain their respective copyrights and licences.
+See licenses/THIRD-PARTY.txt and the accompanying licence texts for their notices.
