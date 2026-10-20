@@ -1,0 +1,84 @@
+YOUTUBE DOWNLOADER 2.0 - WINDOWS APP + CHROME COMPANION
+
+GET STARTED
+1. Double-click YouTube Downloader.exe.
+2. Paste a YouTube video or Shorts link (one link per line, up to 20).
+3. Choose Video or MP3 audio, then click Download.
+4. Use Open downloads folder to find your saved files.
+
+The refreshed Windows app has clearer format choices, a live queue, progress,
+individual download logs, and a Chrome pairing panel. Browser view opens the
+matching web interface with queue filters, session counts, and setup instructions.
+Keep the desktop app open while downloading or using the Chrome companion.
+
+DESKTOP SHORTCUT
+Click Desktop shortcut in the app. It selects YouTube Downloader.lnk in this
+folder. Drag that shortcut onto your desktop, or copy and paste it there.
+Double-click it to open the Windows app, including when no browser is running.
+The Browser view also offers a Get desktop shortcut download.
+If you move this entire app folder, click Desktop shortcut again to refresh the
+shortcut, then replace the old desktop copy.
+
+ADD THE CHROME EXTENSION
+1. In Chrome, open chrome://extensions.
+2. Turn on Developer mode, click Load unpacked, and select the chrome-extension
+   folder beside YouTube Downloader.exe.
+3. Pin YouTube Downloader - Desktop companion using Chrome's puzzle-piece menu.
+4. Open the desktop app and copy the 8-character code from Chrome companion.
+5. Click the extension icon, paste that code, and choose Connect.
+
+While watching a YouTube video or Short, click the extension, choose Video or
+Audio, and send it to the desktop app. The download appears in the same queue.
+Pairing is remembered across app and Chrome restarts. The app's Disconnect
+extension button revokes existing connections. The extension cannot start the
+Windows app itself; launch the app before using it.
+
+The usual app address is http://127.0.0.1:4318. If another app occupies that port,
+this app chooses an available port. Copy the current address from the app's
+Chrome setup guide into the extension's App address setting and pair again.
+Use Install Chrome extension in the Windows app for the illustrated setup guide.
+The included YouTube Downloader Chrome Extension.zip contains the companion
+extension; extract it before using Load unpacked. It is not a Chrome Store listing.
+
+YOUR FILES
+All videos and MP3s save to the downloads folder beside the EXE. Clearing
+finished items removes them from the session queue; it keeps saved files and logs.
+The queue lasts for the current app session. Closing the app stops active downloads.
+Saved files remain. Add a cancelled link again at the same quality to resume.
+
+Individual videos and Shorts are supported, with sound. Video quality is a
+maximum; the source's available formats determine the result. MP4 is preferred.
+MP3 audio is converted to a real MP3 at 192 kbps. Playlist pages, channels,
+upcoming videos and live streams still in progress are not supported.
+
+Some videos require sign-in or are unavailable. The app shows the download
+error. It does not sign in or import browser cookies. If YouTube changes cause
+failures, close the app and run Update Downloader.cmd. The updater uses the
+included runtime and verifies the official download's checksum.
+
+RETRIES AND LOGS
+Failed downloads get 3 automatic retries (4 attempts total), after 3, 6, and 12
+seconds. Other queued downloads can run while a retry waits. Cancel stops a
+pending download and its retries. Try again creates a new session item and log.
+
+Select a row and click Open log, or click its Open log entry. Open logs folder
+shows previous sessions too. Logs include UTC times, attempts, transfer progress,
+processing, errors, retry decisions, and the outcome. HTTP statuses appear when
+reported by the download tool. Signed media URL query strings and authorization
+headers are omitted. Logs are not a packet capture.
+
+PORTABLE WINDOWS PACKAGE
+For 64-bit Windows 10 or 11. No Node.js or Python installation is required.
+Keep app and .tools beside the EXE. You can move the whole YouTube Downloader
+folder to another writable location; saved files move with it.
+
+downloads         Saved videos and MP3 files.
+logs              Per-download logs.
+app               Windows interface and local engine source.
+chrome-extension  Companion extension; select this folder in Load unpacked.
+.tools            Included runtime and download tools.
+licenses          Third-party notices.
+
+Validation: backend pairing/security tests, popup/API tests, real isolated Chrome
+extension integration, Windows compilation and layout checks, browser interface
+and responsive layout checks. Download engine behavior is unchanged.

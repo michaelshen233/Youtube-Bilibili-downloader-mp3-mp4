@@ -1,0 +1,21 @@
+THIRD-PARTY COMPONENTS
+
+Node.js v24.14.0
+https://nodejs.org/
+Source: https://github.com/nodejs/node/tree/v24.14.0
+Node.js-LICENSE.txt contains the runtime's license and bundled dependency notices.
+
+yt-dlp 2026.08.19, official Windows executable
+https://github.com/yt-dlp/yt-dlp/releases/tag/2026.08.19
+Source: https://github.com/yt-dlp/yt-dlp/tree/2026.08.19
+The source project is Unlicense; the bundled Windows executable includes GPLv3+ components.
+See yt-dlp-THIRD_PARTY_LICENSES.txt and GPL-3.0.txt.
+
+FFmpeg and FFprobe, official yt-dlp/FFmpeg-Builds win64 GPL build
+https://github.com/yt-dlp/FFmpeg-Builds
+https://github.com/FFmpeg/FFmpeg
+See FFmpeg-version.txt for the exact bundled build, options and upstream commit.
+Build recipes and dependency source references:
+https://github.com/yt-dlp/FFmpeg-Builds
+https://github.com/BtbN/FFmpeg-Builds
+See GPL-3.0.txt.

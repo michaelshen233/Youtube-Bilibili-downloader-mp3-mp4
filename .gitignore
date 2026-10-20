@@ -1,0 +1,26 @@
+# Local runtimes, connection credentials, and generated app data.
+/.tools/*
+!/.tools/app-icon.ico
+/downloads/
+/logs/
+extension-connections.json
+extension-connections.json.tmp
+
+# Packaged builds and machine-specific shortcuts.
+/*.exe
+/*.zip
+/*.lnk
+
+# Generated browser test screenshots.
+/chrome-extension/tests/popup-preview.png
+
+# Dependencies, local configuration, and temporary files.
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+Desktop.ini

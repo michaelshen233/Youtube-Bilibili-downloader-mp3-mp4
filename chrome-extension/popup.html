@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js" type="module"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v11m-4-4 4 4 4-4M5 17v3h14v-3"/></svg></span><div><strong>YouTube Downloader</strong><span>YOUR DESKTOP COMPANION</span></div></div>
+    <button class="icon-button" id="settings-toggle" aria-label="Connection settings" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg></button>
+  </header>
+  <main>
+    <div class="connection-line"><span id="connection-status" class="status-pill checking"><i aria-hidden="true"></i><span>Checking app…</span></span><button id="open-app" class="text-button">Open app <span aria-hidden="true">↗</span></button></div>
+    <section class="video-card" aria-labelledby="video-heading">
+      <div class="eyebrow" id="video-heading">CURRENT VIDEO</div>
+      <div class="video-preview"><span class="video-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 6 9 6-9 6z"/></svg></span><div><h1 id="video-title">Looking for your video…</h1><p id="video-subtitle">Open a YouTube video in this tab.</p></div></div>
+      <div class="format-control" role="group" aria-label="Download format"><button id="format-video" class="format-option selected" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="m15 10 6-3v10l-6-3"/></svg>Video <span>MP4</span></button><button id="format-mp3" class="format-option" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17V5l11-2v12M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg>Audio <span>MP3</span></button></div>
+      <div class="quality-row"><label for="quality" id="quality-label">Video quality</label><select id="quality"><option value="1080">1080p · Full HD</option><option value="720">720p · HD</option><option value="480">480p · Smaller file</option><option value="best">Best available</option></select><span id="audio-quality" hidden>192 kbps · High quality</span></div>
+      <button id="download" class="primary-button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-4-4 4 4 4-4M5 17v3h14v-3"/></svg><span id="download-label">Send to desktop app</span><span aria-hidden="true">→</span></button>
+      <p class="download-note">Saves to the app’s downloads folder.</p>
+    </section>
+    <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
+    <section id="connection-settings" class="settings-card" hidden aria-labelledby="settings-heading">
+      <h2 id="settings-heading">Connect to your desktop app</h2>
+      <p>Open the app and copy the pairing code from its Chrome extension section.</p>
+      <form id="pair-form">
+        <label for="pair-code">Pairing code</label>
+        <div class="pair-row"><input id="pair-code" placeholder="A1B2C3D4" autocomplete="off" spellcheck="false" maxlength="8" pattern="[a-fA-F0-9]{8}" aria-describedby="pair-hint"><button id="pair-button" class="small-primary" type="submit">Connect</button></div>
+        <span id="pair-hint" class="field-hint">8 characters, shown in the app.</span>
+        <label for="app-address">App address</label>
+        <input id="app-address" type="text" value="http://127.0.0.1:4318" autocomplete="off" spellcheck="false">
+        <span class="field-hint">If the app uses another port, copy its address here.</span>
+      </form>
+      <div class="settings-actions"><button id="retry" class="text-button">Check connection</button><button id="forget" class="text-button muted" hidden>Forget pairing</button></div>
+    </section>
+    <section class="queue-section" aria-labelledby="queue-heading">
+      <div class="section-heading"><h2 id="queue-heading">Recent downloads <span id="queue-count"></span></h2><button id="open-folder" class="text-button" disabled>Open folder <span aria-hidden="true">↗</span></button></div>
+      <ul id="queue" class="queue" aria-live="off"></ul>
+      <div id="queue-empty" class="empty-state"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h6l2 2h8v11H4zM4 7V4h7l2 3"/></svg><p>Your next favourite, saved.</p><span>Downloads appear here once connected.</span></div>
+    </section>
+  </main>
+  <footer><i aria-hidden="true"></i> Runs locally on your computer</footer>
+</body>
+</html>

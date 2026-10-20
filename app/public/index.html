@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="app-token" content="{{TOKEN}}"><meta name="theme-color" content="#087f64">
+  <title>YouTube Downloader</title><link rel="icon" href="/assets/app-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V4h6l3 3h9v13H3Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3Z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17V5l12-2v12M9 8l12-2"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="18" cy="16" rx="3" ry="3"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-6 6-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m4 2 2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0" transform="translate(1 0)"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-chrome" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5h8M9 14l-4-7m9 7-4 7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+  </defs></svg>
+  <aside class="sidebar">
+    <a href="/" class="brand"><span class="brand-mark"><svg><use href="#i-download"/></svg></span><span>YouTube<br><strong>Downloader</strong></span></a>
+    <p class="nav-label">YOUR WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <a class="nav-item selected" href="#download-section"><svg><use href="#i-download"/></svg>Downloader<span class="nav-dot"></span></a>
+      <button type="button" class="nav-item" id="sidebar-folder"><svg><use href="#i-folder"/></svg>Downloads folder</button>
+      <button type="button" class="nav-item" id="sidebar-extension"><svg><use href="#i-chrome"/></svg>Chrome extension<span class="new-label">NEW</span></button>
+      <a class="nav-item" href="/desktop-shortcut" download="YouTube Downloader.lnk"><svg><use href="#i-desktop"/></svg>Desktop shortcut</a>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot"></span><strong>Made for your computer</strong><p>Your files stay right here.<br>No account needed.</p></div>
+    <div class="sidebar-footer">A little more offline.<span>Version 2.0</span></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> <strong>Downloader</strong></span><span class="local-badge" id="local-badge"><span class="status-dot"></span><span id="local-label">Connecting to app</span></span></header>
+    <main>
+      <section class="intro"><p class="eyebrow">GOOD VIDEOS DESERVE A SAVE</p><h1>Save it for later<span>.</span></h1><p class="subtitle">Your favourite videos and audio, ready whenever you are.</p></section>
+      <div class="stats" aria-label="Download summary">
+        <div class="stat"><span class="stat-icon active-icon"><svg><use href="#i-download"/></svg></span><div><span class="stat-label">In progress</span><strong id="active-count">0</strong></div></div>
+        <div class="stat"><span class="stat-icon saved-icon"><svg><use href="#i-check"/></svg></span><div><span class="stat-label">Saved this session</span><strong id="saved-count">0</strong></div></div>
+        <div class="stat"><span class="stat-icon attention-icon">!</span><div><span class="stat-label">Needs attention</span><strong id="failed-count">0</strong></div></div>
+      </div>
+      <div class="content-grid">
+        <section class="composer" id="download-section" aria-labelledby="form-heading">
+          <div class="card-heading"><span class="heading-icon"><svg><use href="#i-link"/></svg></span><div><h2 id="form-heading">Start a new download</h2><p>One link or a whole little collection.</p></div></div>
+          <form id="download-form">
+            <div class="field-heading"><label for="links">YouTube links</label><button class="text-button" type="button" id="paste"><svg><use href="#i-copy"/></svg>Paste links</button></div>
+            <textarea id="links" name="links" rows="3" required spellcheck="false" autocomplete="off" placeholder="Paste a YouTube video or Shorts link here…" aria-describedby="link-help"></textarea>
+            <p class="field-hint" id="link-help"><span>One link per line · Up to 20 videos</span><span id="link-count">0 links</span></p>
+            <label class="field-label" id="format-label">Save as</label>
+            <div class="format-options" role="group" aria-labelledby="format-label">
+              <button type="button" class="format-option selected" id="video-choice" aria-pressed="true"><svg><use href="#i-play"/></svg><span><strong>Video</strong><small>Picture + sound</small></span><span class="choice-check">✓</span></button>
+              <button type="button" class="format-option" id="audio-choice" aria-pressed="false"><svg><use href="#i-music"/></svg><span><strong>MP3 audio</strong><small>Just the soundtrack</small></span><span class="choice-check">✓</span></button>
+            </div>
+            <select id="format" name="format" hidden aria-label="Download format"><option value="video">Video</option><option value="mp3">MP3 audio</option></select>
+            <div class="form-bottom">
+              <div class="quality-field" id="video-quality"><label for="quality">Video quality</label><select id="quality" name="quality"><option value="1080">1080p · Full HD</option><option value="720">720p · Smaller file</option><option value="480">480p · Smallest file</option><option value="best">Best available</option></select></div>
+              <p class="audio-quality" id="audio-quality" hidden><strong>192 kbps</strong><span>Clear, ready-to-play MP3 audio</span></p>
+              <button type="submit" class="primary" id="download"><svg><use href="#i-download"/></svg><span id="download-label">Download video</span></button>
+            </div>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+          <div class="save-location"><svg><use href="#i-folder"/></svg><span>Saved to your <strong>downloads</strong> folder</span><button class="text-button" type="button" id="open-folder">Open folder ↗</button></div>
+        </section>
+        <aside class="extras" aria-label="Quick setup">
+          <section class="extension-card"><div class="extension-symbol"><svg><use href="#i-chrome"/></svg></div><span class="pill">A SHORTER WAY TO SAVE</span><h2>Watching in Chrome?<br> Send it straight here.</h2><p>Add the companion extension and download the video you’re watching in a couple of clicks.</p><button type="button" id="setup-extension" class="extension-button">Set up Chrome extension<svg><use href="#i-arrow"/></svg></button><span class="extension-state" id="extension-state">Connect once. Save whenever.</span></section>
+          <section class="desktop-card"><span class="desktop-symbol"><svg><use href="#i-desktop"/></svg></span><h3>One click from your desktop</h3><p>Download the shortcut, then move it to your desktop to open this app anytime.</p><a href="/desktop-shortcut" download="YouTube Downloader.lnk" class="text-button">Get desktop shortcut <span>↗</span></a></section>
+        </aside>
+      </div>
+      <section class="queue-section" aria-labelledby="queue-heading">
+        <div class="queue-heading"><div><h2 id="queue-heading">Your downloads <span id="count">0</span></h2><p>Everything you’ve added in this session.</p></div><button type="button" class="text-button" id="clear" hidden>Clear finished</button></div>
+        <div class="queue-toolbar"><div class="filters" role="group" aria-label="Filter downloads"><button type="button" class="filter selected" data-filter="all" aria-pressed="true">All downloads</button><button type="button" class="filter" data-filter="active" aria-pressed="false">In progress</button><button type="button" class="filter" data-filter="completed" aria-pressed="false">Saved</button><button type="button" class="filter" data-filter="failed" aria-pressed="false">Needs attention</button></div><button type="button" class="text-button" id="open-logs">Open logs ↗</button></div>
+        <p id="connection" class="connection" role="status" hidden>The app is disconnected. Reopen YouTube Downloader, then refresh this page.</p>
+        <div id="empty" class="empty-state"><div class="empty-art"><span class="empty-art-line"></span><svg><use href="#i-download"/></svg><span class="empty-art-line"></span></div><h3 id="empty-title">A good place for your next favourite</h3><p id="empty-text">Paste a link above. We’ll take care of the rest.</p><span class="empty-footnote">VIDEOS · SHORTS · MP3 AUDIO</span></div>
+        <div id="jobs" class="jobs"></div>
+      </section>
+      <footer><span><span class="status-dot"></span>Runs locally. Saves locally.</span><span>Video quality depends on what the source offers.</span></footer>
+    </main>
+  </div>
+  <dialog id="extension-dialog" aria-labelledby="extension-heading">
+    <button type="button" class="dialog-close" id="close-extension" aria-label="Close extension setup">×</button>
+    <span class="dialog-symbol"><svg><use href="#i-chrome"/></svg></span><p class="eyebrow">CONNECT YOUR BROWSER</p><h2 id="extension-heading">From Chrome to your queue.</h2><p class="dialog-intro">A quick, one-time setup. Keep the desktop app open while using the extension.</p>
+    <ol class="setup-steps"><li><strong>Add the extension to Chrome</strong><p>Open <code>chrome://extensions</code>, turn on <strong>Developer mode</strong>, then choose <strong>Load unpacked</strong>. Select the <strong>chrome-extension</strong> folder beside this app.</p><button type="button" class="secondary" id="extension-folder"><svg><use href="#i-folder"/></svg>Open extension folder</button><button type="button" class="text-button" id="copy-chrome">Copy Chrome settings address</button></li><li><strong>Pair it with this app</strong><p>Pin the extension in Chrome. Open its popup and enter this connection code.</p><div class="pairing-row"><code id="pairing-code">Loading…</code><button type="button" class="secondary" id="copy-pairing"><svg><use href="#i-copy"/></svg>Copy code</button></div><div class="address-row">App address: <code id="app-address"></code><button type="button" class="text-button" id="copy-address">Copy</button></div></li><li><strong>Save the video you’re watching</strong><p>On a YouTube video or Short, open the extension, pick Video or MP3, and click <strong>Send to app</strong>.</p></li></ol>
+    <p id="setup-message" class="form-message" role="status" aria-live="polite"></p><div class="dialog-footer"><span id="pairing-status">Waiting for connection</span><button type="button" class="text-button" id="disconnect-extension" hidden>Disconnect extension</button></div>
+  </dialog>
+</body>
+</html>
+

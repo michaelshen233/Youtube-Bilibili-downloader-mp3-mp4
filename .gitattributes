@@ -1,0 +1,15 @@
+# Keep source changes consistent across Windows and other platforms.
+* text=auto
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.cs text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.ico binary
+*.png binary
